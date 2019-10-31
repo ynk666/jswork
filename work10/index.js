@@ -26,7 +26,12 @@ function stat(){
     let str =document.getElementById("str").value
     let obj ={}
 
-
+    var sum = str.split("")
+    sum = sum.sort()
+    for(var i=0,l=str.length;i<l;i++){
+        obj[sum[i]]=(obj[sum[i]]+1) || 1;
+        
+    }
 
 
 
