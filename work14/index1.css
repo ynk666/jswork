@@ -1,6 +1,6 @@
 .box {
     width: 250px;
-    height: 52;
+    height: 52px;
     padding: 15px 30px;
     border: 2px solid #ccc;
     border-radius: 16px;
@@ -12,11 +12,12 @@
     color: #666;
     font-size: 280%;
     line-height: 50px;
-    padding-left: 5px;
-    border: 1px solid #fff;
+    padding-left: 6px;
+    margin-left: 5px;
+    border: 1px solid #fff
 }
 
-.box .div {
+.box div {
     margin-left: 5px;
     float: left;
     width: 50px;

@@ -15,11 +15,11 @@ function seckill() {
         s = s < 10 ? '0' + s : s;
     } else {
         clearInterval(id);
-        d = h = m = s = '00'
+        d = h = m = s = '00';
     }
       document.getElementById('d').innerHTML = d + '天';
-      document.getElementById('h').innerHTML = d + '时';
-      document.getElementById('m').innerHTML = d + '分';
-      document.getElementById('s').innerHTML = d + '秒';
+      document.getElementById('h').innerHTML = h + '时';
+      document.getElementById('m').innerHTML = m + '分';
+      document.getElementById('s').innerHTML = s + '秒';
 
     }
