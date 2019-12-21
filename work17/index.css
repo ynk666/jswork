@@ -4,7 +4,6 @@ body {
 
 .box-body {
     padding: 10px 20px;
-
 }
 
 .box-body th {
@@ -23,7 +22,7 @@ body {
     font-size: 12px;
 }
 
-.box-body input[type=text],aa
+.box-body input[type=text],
 .box-body input[type=password] {
     border-color: #bbb;
     height: 38px;
