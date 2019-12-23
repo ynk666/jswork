@@ -72,5 +72,63 @@ function ProgressBar(container) {
 ProgressBar.prototype.show = function () {
     this.div.style.width = '70%';
 };
+  ProgressBar.prototype.complete = function () {
+      var div = this.div;
+      var container = this.container;
+      div.style.width = '100%';
+      setTimeout(function (){
+        div.style.opacity= 0;
+        setTimeout(function () {
+            container.removeChild(div);
+        },300);  
+      }, 500);
 
-})
+  };
+  var QuerString = {
+      get: function () {
+          return location.search.substr(1);
+
+      },
+      set: function (str) {
+          history.pushState(null,null, '?' + str);
+      },
+      find: function (name) {
+          var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)','i');
+          var r = this.get() .match(reg);
+          return r ? unescape(r[2]) : null;
+      },
+      getPage: function () {
+          var page = parseInt(this.find('page'));
+          return (isNaN(page) || (page <1)) ? 1 : page;
+
+      }
+    };
+    var Comment = new Comment(document.getElementById('comment'));
+    var ProgressBar;
+    var progressContainer = document.getElementById('progress');
+    var pageList = new PageList({
+        page:  QueryString.getPage(),
+        maxPage:1,
+        first: document.getElementById('page_first'),
+        prev: document.getElementById('page_prev'),
+        next: document.getElementById('page_next'),
+        last: document.getElementById('page_last'),
+        pageNum: document.getElementById('page_num'),
+        onChange: function () {
+            Comment.ajax('http://139.9.81.203:8090/ajax?page=' + this.page, function () {
+                ProgressBar = new ProgressBar(progressContainer);
+                ProgressBar.show();
+        }, function (obj) {
+            pageList.maxPage = obj.maxPage;
+            pageList.updateStatus();
+            Comment.create(obj.data);
+            QueryString.set('page=' + pageList.page);
+            ProgressBar.complete();
+        
+            });
+        }
+    
+  
+  });
+  pageList.onChange();
+})();
