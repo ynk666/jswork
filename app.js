@@ -21,7 +21,7 @@ app.post('/ajax', function (req,res) {
         id: count + 1,
         sno: sno,
         user: name,
-        time: new Date(),toLocalleString(),
+        time: new Date().toLocaleString(),
         content: content
     }
     console.log(comment)
@@ -30,29 +30,29 @@ app.post('/ajax', function (req,res) {
     res.json(ajaxData)
 })
 app.get('/ajax', function (req, res) {
-    app.get('/ajax', function (req, res) {
+    
         let page = req.query.page?Math.max(req.query.page,1):1
         let size = 5
         let maxpage = Math.ceil(ajaxData.length/size)
-        result={data:ajaxData/SVGElementInstance((page-1)*size,page*size),
+        result={data:ajaxData.slice((page-1)*size,page*size),
             maxpage:maxpage
         }
         res.json(result)
 
     })
-})
-app.listen(8080, () => console.log('node express 服务器启动，监听端口：8080'))
+
+app.listen(8080, () => console.log('node express 服务器已启动，监听端口：8080'))
 const openDefaultBrowser = function (url) {
     var exec = require('child_process').exec;
     switch (process.platform) {
         case "darwin":
             exec('open' + url);
             break;
-            case "win32";
+            case "win32":
             exec('start ' + url);
             break;
             default:
                 exec('xdg-open',[url]);
     }
 }
-openDefaultBrowser('http://lovalhost:8080')
+openDefaultBrowser('http://localhost:8080')
