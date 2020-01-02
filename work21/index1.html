@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>林启权的无缝轮播图</title>
-    <link rel="stylesheet" href="index.css">
+    <title>林启权的Ajax无刷新提交评论</title>
     <script src="../jquery.js"></script>
 </head>
 <body>
-    <div class="title">林启权的无缝轮播图</div>
-    <div class="banner">
-        <ul class="hot">
-            <li><a href="#"><img src="images/1.jpg"></a></li>
-            <li><a href="#"><img src="images/2.jpg"></a></li>
-            <li><a href="#"><img src="images/3.jpg"></a></li>
-            <li><a href="#"><img src="images/4.jpg"></a></li>
-            <li><a href="#"><img src="images/5.jpg"></a></li>
-
-        </ul>
-        <ul class="dot">
-            <li class="on"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-
-            <li></li>
-
-        </ul>
-        <div class="arrow"><span class="prev">&lt;</span><span class="next">&gt;</span></div>
-    </div>
     
+    <div>林启权的jQuery ajaxF无刷新提交评论</div>
+    <form>
+        学号：<input type="text" value="07190526" name="sno"><br>
+        姓名:<input type="text" value="林启权" name="name"><br>
+        评论：<input type="text" value="我会写jQuery Ajax, 我太牛了。" name="content" size=30><br>
+  <input type="button" value="发表评论"><br>
+
+    </form>
+    <div id="result"></div>
 </body>
-<script src="index.js">s</script>
+<script src="index1.js"></script>
 </html>
