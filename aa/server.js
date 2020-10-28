@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     },
     filename(req,file,cb){
         let ext=file.originalname.split(".").slice(-1)
-        let filename= `${file,fieldname}-${Date.now()}.${ext}`
+        let filename= `${file,filename}-${Date.now()}.${ext}`
         console.log(filename)
         cb(null,filename)
     }
@@ -41,7 +41,7 @@ app.get('/login',(req,res)=>{
     res.render('login',{title:'登录'})
 })
 app.post('/login',(req,res)=>{
-    if(req.body.user=='ynk666'&&req.body.pwd=='ssynksc2019'){
+    if(req.body.user=='cuiyu'&&req.body.pwd=='york'){
         req.session.id=req.body.user
         req.session.user=req.body.user
         req.session.pwd=req.body.pwd
@@ -60,6 +60,5 @@ app.get('/islogin',(req,res)=>{
 app.get('/querysample',(req,res)=>{
     res.send(req.query)
 })
-app.listen(port,()=>console.log(`express server on port:${port}`))
 
 app.listen(port,()=>console.log(`express server running on port:${port}`))
